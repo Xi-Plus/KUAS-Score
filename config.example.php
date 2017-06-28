@@ -5,8 +5,8 @@ $C['FBAPI'] = 'https://graph.facebook.com/v2.8/';
 
 $C['allowsapi'] = array('cli');
 
-$C['cookiepath'] = 'cookie.txt';
-$C['datapath'] = 'data.json';
+$C['cookiepath'] = __DIR__.'/cookie.txt';
+$C['datapath'] = __DIR__.'/data.json';
 
 $C['url1'] = 'http://140.127.113.231/kuas/perchk.jsp';
 $C['url2'] = 'http://140.127.113.231/kuas/ag_pro/ag008.jsp';
