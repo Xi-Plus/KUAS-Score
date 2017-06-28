@@ -11,12 +11,18 @@ $post = array(
 	"pwd" => $C["pwd"]
 );
 $res = cURL($C["url1"], $post, $C["cookiepath"]);
+if ($res === false) {
+	exit("fetch fail\n");
+}
 
 $post = array(
 	"arg01" => $C["year"],
 	"arg02" => $C["semester"]
 );
 $res = cURL($C["url2"], $post, $C["cookiepath"]);
+if ($res === false) {
+	exit("fetch fail\n");
+}
 $res = html_entity_decode($res);
 preg_match_all("/<td align=left>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)/", $res, $m);
 
