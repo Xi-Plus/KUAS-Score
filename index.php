@@ -69,6 +69,7 @@ if (preg_match("/操行成績：(.*?)　　　　總平均：(.*?)　　　　�
 file_put_contents($C["datapath"], json_encode($data, 256));
 
 if ($message != "") {
+	$message .= "\n本貼文是程式自動發送，由 https://github.com/Xi-Plus/KUAS-Score 驅動";
 	$post = array(
 		"message" => $message,
 		"access_token" => $C['FBtoken']
