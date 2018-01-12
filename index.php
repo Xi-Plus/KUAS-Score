@@ -25,8 +25,12 @@ if ($res === false) {
 }
 $res = html_entity_decode($res);
 
-$data = file_get_contents($C["datapath"]);
-$data = json_decode($data, true);
+$data = @file_get_contents($C["datapath"]);
+if ($data === false) {
+	$data = [];
+} else {
+	$data = json_decode($data, true);
+}
 $message = "";
 
 if (preg_match_all("/<td align=left>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)/", $res, $m)) {
