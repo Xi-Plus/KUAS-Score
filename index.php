@@ -42,7 +42,11 @@ if (preg_match_all("/<td align=left>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/
 		} else if ($data[$class] != $score) {
 			echo $class." update to ".$score."\n";
 			$data[$class] = $score;
-			$message .= $class." 的成績已公布\n";
+			if ($score == 0) {
+				$message .= $class." 的成績已取消公布\n";
+			} else {
+				$message .= $class." 的成績已公布\n";
+			}
 		} else {
 			echo $class." is ".$score."\n";
 		}
