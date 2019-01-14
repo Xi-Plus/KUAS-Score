@@ -77,10 +77,23 @@ if (preg_match("/操行成績：(.*?)　　　　總平均：(.*?)　　　　�
 file_put_contents($C["datapath"], json_encode($data, 256));
 
 if ($message != "") {
-	$message .= "\n本貼文是程式自動發送，由 https://github.com/Xi-Plus/KUAS-Score 驅動";
-	$post = array(
-		"message" => $message,
-		"access_token" => $C['FBtoken']
-	);
-	$res = cURL($C['FBAPI']."me/feed", $post);
+	$message .= "\n本訊息是程式自動發送，由 https://github.com/Xi-Plus/NKUST-Score 驅動";
+	echo $message."\n";
+	if ($C['sendFB']) {
+		echo "send to FB\n";
+		$post = array(
+			"message" => $message,
+			"access_token" => $C['FBtoken']
+		);
+		$res = cURL($C['FBAPI']."me/feed", $post);
+	}
+	if ($C['sendTG']) {
+		echo "send to TG\n";
+		$post = array(
+			"chat_id" => $C['TGchatid'],
+			"text" => $message,
+			"disable_web_page_preview" => '1'
+		);
+		$res = cURL($C['TGAPI']."sendMessage", $post);
+	}
 }
