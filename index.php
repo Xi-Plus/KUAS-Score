@@ -59,13 +59,17 @@ if (preg_match("/操行成績：(.*?)　　　　總平均：(.*?)　　　　�
 	$name = ["", "操行成績", "總平均", "班名次", "班名次百分比"];
 	for ($i=1; $i <= 4; $i++) {
 		$class = $name[$i];
-		$score = $m[$i];
+		$score = (double)($m[$i]);
 		if (!isset($data[$class])) {
 			$data[$class] = $score;
 		} else if ($data[$class] != $score) {
 			echo $class." update to ".$score."\n";
 			$data[$class] = $score;
-			$message .= $class." 已公布\n";
+			if ($score == 0) {
+				$message .= $class." 已取消公布\n";
+			} else {
+				$message .= $class." 已公布\n";
+			}
 		} else {
 			echo $class." is ".$score."\n";
 		}
