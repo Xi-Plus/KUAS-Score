@@ -36,7 +36,7 @@ $message = "";
 if (preg_match_all("/<td align=left>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)<\/td><td>([^<]+)/", $res, $m)) {
 	foreach ($m[0] as $key => $value) {
 		$class = trim($m[1][$key], " \t\n\r\0\x0B\xC2\xA0");
-		$score = (int)(trim($m[7][$key], " \t\n\r\0\x0B\xC2\xA0"));
+		$score = (double)(trim($m[7][$key], " \t\n\r\0\x0B\xC2\xA0"));
 		if (!isset($data[$class])) {
 			$data[$class] = $score;
 		} else if ($data[$class] != $score) {
