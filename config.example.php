@@ -14,8 +14,8 @@ $C['allowsapi'] = array('cli');
 $C['cookiepath'] = __DIR__.'/cookie.txt';
 $C['datapath'] = __DIR__.'/data.json';
 
-$C['url1'] = 'http://140.127.113.231/kuas/perchk.jsp';
-$C['url2'] = 'http://140.127.113.231/kuas/ag_pro/ag008.jsp';
+$C['url1'] = 'https://webap.nkust.edu.tw/nkust/perchk.jsp';
+$C['url2'] = 'https://webap.nkust.edu.tw/nkust/ag_pro/ag008.jsp';
 
 $C['uid'] = 'YOUR_USER_ID';
 $C['pwd'] = 'YOUR_PASSWORD';
